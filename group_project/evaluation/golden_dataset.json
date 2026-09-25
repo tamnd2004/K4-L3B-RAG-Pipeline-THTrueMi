@@ -1,0 +1,212 @@
+[
+  {
+    "id": "case_01",
+    "retrieval_type": "keyword",
+    "question": "What are the four core workstreams in an AWS large migration?",
+    "expected_answer": "Foundation, Project governance, Portfolio, and Migration.",
+    "expected_context": "Core workstreams\nCore workstreams are needed for every large migration, regardless of company size or segment.\nThe following is an overview of the primary roles of each core workstream:\n• Foundation workstream – This workstream is focused on preparing the people and platform for\nthe large migration.\n• Project governance workstream – This workstream manages the overall migration project,\nfacilitates communication, and focuses on completing the project within budget and on time.\n• Portfolio workstream – The teams in this workstream collect metadata to support the\nmigration, prioritize applications, and perform wave planning.\n• Migration workstream – Using the wave plan and collected metadata from the portfolio\nworkstream, the teams in this workstream migrate and cutover the applications and servers.",
+    "citations": [
+      {
+        "file": "data/standardized/legal/aws-large-migration-foundation-playbook.md",
+        "line_start": 98,
+        "line_end": 108
+      }
+    ]
+  },
+  {
+    "id": "case_02",
+    "retrieval_type": "semantic",
+    "question": "How does preparing the infrastructure differ from preparing the team for a large migration?",
+    "expected_answer": "Platform foundation confirms that AWS and on-premises infrastructure is ready to support the migration. People foundation prepares and trains project teams and sets up all workstreams.",
+    "expected_context": "Foundation workstream\nThe foundation workstream consists of two categories: platform foundation and people\nfoundation. Building the platform foundation helps confirm that both the AWS and the on-\npremises infrastructures are ready to support the large migration. Building a people foundation\nprepares and trains the project teams for the migration and sets up all workstreams.",
+    "citations": [
+      {
+        "file": "data/standardized/legal/aws-large-migration-foundation-playbook.md",
+        "line_start": 187,
+        "line_end": 191
+      }
+    ]
+  },
+  {
+    "id": "case_03",
+    "retrieval_type": "semantic",
+    "question": "A team wants to move as many applications as possible in each batch. What should constrain the size and timing of those batches?",
+    "expected_answer": "Wave size and scheduling must match the capacity of the migration workstream and account for application complexity, dependencies, budgets, performance goals, resource availability, and deadlines.",
+    "expected_context": "In a large migration, the portfolio workstream plans waves of applications for migration, and the\nmigration workstream focuses on migrating those waves. When planning waves, the portfolio\nworkstream is responsible for assessing the portfolio, collecting the metadata needed for the\nmigration, prioritizing the applications, and then assigning the applications to waves. Waves must\nbe sized and scheduled according to the capacity of the migration workstream and must account\nfor the complexity of the application, dependencies, and any business factors, such as budgets,\nperformance goals, resource availability, and deadlines. For more information about core and",
+    "citations": [
+      {
+        "file": "data/standardized/legal/aws-large-migration-portfolio-playbook.md",
+        "line_start": 35,
+        "line_end": 41
+      }
+    ]
+  },
+  {
+    "id": "case_04",
+    "retrieval_type": "keyword",
+    "question": "Which three runbooks does the Portfolio playbook require?",
+    "expected_answer": "The Application prioritization runbook, Metadata management runbook, and Wave planning runbook.",
+    "expected_context": "About the runbooks, tools, and templates\nIn this playbook, you create the following runbooks:\n• Application prioritization runbook\n• Metadata management runbook\n• Wave planning runbook",
+    "citations": [
+      {
+        "file": "data/standardized/legal/aws-large-migration-portfolio-playbook.md",
+        "line_start": 70,
+        "line_end": 74
+      }
+    ]
+  },
+  {
+    "id": "case_05",
+    "retrieval_type": "source_disambiguation",
+    "question": "According to the Migration playbook, what must be verified about the wave plan before stage 2 begins?",
+    "expected_answer": "The wave plan must have been validated. The portfolio workstream develops this plan, which determines the activities of the migration workstream.",
+    "expected_context": "Note\nThe wave plan developed in the portfolio workstream determines the activities in the\nmigration workstream. Before starting stage 2, verify that you have validated your wave\nplan. For instructions and more information about the wave plan, see Portfolio playbook\nfor AWS large migrations.",
+    "citations": [
+      {
+        "file": "data/standardized/legal/aws-large-migration-migration-playbook.md",
+        "line_start": 422,
+        "line_end": 426
+      }
+    ]
+  },
+  {
+    "id": "case_06",
+    "retrieval_type": "source_disambiguation",
+    "question": "According to the Migration playbook, which artifacts manage cutover task ownership and which guide the execution of cutover activities?",
+    "expected_answer": "Use the RACI matrices created in the Foundation playbook to manage cutover tasks and ownership. Use the migration runbook for each pattern to perform cutover activities.",
+    "expected_context": "Task 3: Performing cutover tasks\nAt this point, you have completed the migration tasks and tested all of the servers and apps, and\nyou are ready for cutover. Use the RACI matrices you created in the Foundation playbook for AWS\nlarge migrations to manage the tasks and ownership of each cutover task, and use your migration\nrunbook for each pattern to perform the cutover activities. The following table is an example\nof how you might track and manage cutover progress. It is common to have multiple migration\npatterns in the same wave for different applications.",
+    "citations": [
+      {
+        "file": "data/standardized/legal/aws-large-migration-migration-playbook.md",
+        "line_start": 486,
+        "line_end": 492
+      }
+    ]
+  },
+  {
+    "id": "case_07",
+    "retrieval_type": "keyword",
+    "question": "What are the prerequisites for migrating an on-premises VM to Amazon EC2 using AWS Application Migration Service?",
+    "expected_answer": "An active AWS account in a Region supporting Application Migration Service, and network connectivity between the source server and target EC2 server through Direct Connect, a VPN, or the internet.",
+    "expected_context": "## Prerequisites and limitations\n**Prerequisites**\n  * An active AWS account in one of the AWS Regions that support Application Migration Service\n  * Network connectivity between the source server and target EC2 server through a private network by using AWS Direct Connect or a virtual private network (VPN), or through the internet",
+    "citations": [
+      {
+        "file": "data/standardized/news/article_01_migrate-an-on-premises-vm-to-amazon-ec2-by-using-aws-application-migration-service.md",
+        "line_start": 15,
+        "line_end": 18
+      }
+    ]
+  },
+  {
+    "id": "case_08",
+    "retrieval_type": "source_disambiguation",
+    "question": "For the VM-to-EC2 pattern using AWS Application Migration Service, can the source server be rebooted before cutover completes, and when should UAT ideally start?",
+    "expected_answer": "Do not take the source server offline or reboot it until cutover to the target EC2 instance is complete. Ideally, user acceptance testing on the target server should start at least two weeks before cutover.",
+    "expected_context": "## Best practices\n  * Do not take the source server offline or perform a reboot until the cutover to the target EC2 instance is complete.\n  * Provide ample opportunity for the users to perform user acceptance testing (UAT) on the target server to identify and resolve any issues. Ideally, this testing should start at least two weeks before cutover.",
+    "citations": [
+      {
+        "file": "data/standardized/news/article_01_migrate-an-on-premises-vm-to-amazon-ec2-by-using-aws-application-migration-service.md",
+        "line_start": 52,
+        "line_end": 54
+      }
+    ]
+  },
+  {
+    "id": "case_09",
+    "retrieval_type": "keyword",
+    "question": "Which migration options are described for moving an on-premises PostgreSQL database to Aurora PostgreSQL?",
+    "expected_answer": "The pattern describes AWS DMS, or native PostgreSQL tools such as pg_dump, pg_restore, and psql, or third-party tools.",
+    "expected_context": "Amazon Aurora PostgreSQL-Compatible Edition combines the performance and availability of high-end commercial databases with the simplicity and cost-effectiveness of open-source databases. Aurora provides these benefits by scaling storage across three Availability Zones in the same AWS Region, and supports up to 15 read replica instances for scaling out read workloads and providing high availability within a single Region. By using an Aurora global database, you can replicate PostgreSQL databases in up to five Regions for remote read access and disaster recovery in the event of a Region failure. This pattern describes the steps for migrating an on-premises PostgreSQL source database to an Aurora PostgreSQL-Compatible database. The pattern includes two migration options: using AWS Data Migration Service (AWS DMS) or using native PostgreSQL tools (such as [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html), [pg_restore](https://www.postgresql.org/docs/current/app-pgrestore.html), and [psql](https://www.postgresql.org/docs/current/app-psql.html)) or third-party tools. \nThe steps described in this pattern also apply to target PostgreSQL databases on Amazon Relational Database Service (Amazon RDS) and Amazon Elastic Compute Cloud (Amazon EC2) instances.",
+    "citations": [
+      {
+        "file": "data/standardized/news/article_02_migrate-an-on-premises-postgresql-database-to-aurora-postgresql.md",
+        "line_start": 13,
+        "line_end": 14
+      }
+    ]
+  },
+  {
+    "id": "case_10",
+    "retrieval_type": "semantic",
+    "question": "When sizing the destination compute for a PostgreSQL database migration, which measurements from the existing database should guide the instance choice?",
+    "expected_answer": "Consider CPU utilization, read and write IOPS, and the memory footprint of the source database instance.",
+    "expected_context": "| Choose the proper instance type, capacity, storage features, and network features.  |  Determine the compute requirements of the target database instance. Review known performance issues that might need additional attention. Consider the following factors to determine the appropriate instance type:\n  * CPU utilization of the source database instance\n  * IOPS (read and write operations) for the source database instance\n  * Memory footprint on the source database instance",
+    "citations": [
+      {
+        "file": "data/standardized/news/article_02_migrate-an-on-premises-postgresql-database-to-aurora-postgresql.md",
+        "line_start": 67,
+        "line_end": 70
+      }
+    ]
+  },
+  {
+    "id": "case_11",
+    "retrieval_type": "semantic",
+    "question": "An application needs extremely fast access to its shared files. When is moving the file system and all dependent servers together appropriate, and what can make that batch impractical?",
+    "expected_answer": "Moving the shared file system and all dependent servers in the same wave is recommended when very low latency is required. It prevents performance issues and reduces repeated mount-point reconfiguration. It is not recommended when many servers access the same file system because the wave becomes too large.",
+    "expected_context": "## Best practices\n**Wave planning approaches**\nWhen planning waves for your large migration project, consider latency and application performance. When the SFS and dependent applications are operating in different locations, such as one in the cloud and one in the on-premises data center, this can increase latency and affect application performance. The following are the available options when creating wave plans:\n  1. **Migrate the SFS and all dependent servers within the same wave** – This approach prevents performance issues and minimizes rework, such as reconfiguring mount points multiple times. It is recommended when very low latency is required between the application and the SFS. However, wave planning is complex, and the goal is typically to remove variables from dependency groupings, not add to them. In addition, this approach isn’t recommended if many servers access the same SFS because it makes the wave too large.",
+    "citations": [
+      {
+        "file": "data/standardized/news/article_03_migrate-shared-file-systems-in-an-aws-large-migration.md",
+        "line_start": 85,
+        "line_end": 88
+      }
+    ]
+  },
+  {
+    "id": "case_12",
+    "retrieval_type": "source_disambiguation",
+    "question": "In the shared file system migration guidance, dependent servers move in waves 4, 6, and 7. Under the last-dependent-server approach, which wave should contain the SFS, and what latency condition must be checked?",
+    "expected_answer": "Schedule the SFS in wave 7. Confirm that applications can tolerate additional latency between the first dependent wave and the wave containing the SFS. Be ready to migrate the SFS earlier if a dependent application develops performance issues.",
+    "expected_context": "  2. **Migrate the SFS after the last dependent server has been migrated** – For example, if an SFS is accessed by multiple servers and those servers are scheduled to migrate in waves 4, 6, and 7, schedule the SFS to migrate in wave 7.\nThis approach is often the most logical for large migrations and is recommended for latency-sensitive applications. It reduces costs associated with data transfer. It also minimizes the period of latency between the SFS and higher-tier (such as production) applications because higher-tier applications are typically scheduled to migrate last, after development and QA applications.\nHowever, this approach still requires discovery, planning, and agility. You might need to migrate the SFS in an earlier wave. Confirm that the applications can withstand the additional latency for the period of time between the first dependent wave and the wave containing the SFS. Conduct a discovery session with the application owners and migrate the application in same wave the most latency-sensitive application. If performance issues are discovered after migrating a dependent application, be prepared to pivot quickly to migrate the SFS as quickly as possible.",
+    "citations": [
+      {
+        "file": "data/standardized/news/article_03_migrate-shared-file-systems-in-an-aws-large-migration.md",
+        "line_start": 89,
+        "line_end": 91
+      }
+    ]
+  },
+  {
+    "id": "case_13",
+    "retrieval_type": "keyword",
+    "question": "When is the recommended T-1 go or no-go meeting held, what is its purpose, and who is its audience?",
+    "expected_answer": "It is held approximately 24–48 hours before cutover to confirm readiness for migration cutover. Its audience is the cloud operations team, application owners, and infrastructure team.",
+    "expected_context": "| Gate  | Approximate timeline  | Purpose  | Gate owner  | Audience  |  \n| --- | --- | --- | --- | --- |  \n| Gate 1: Create T-minus schedule  | Before wave plan complete  | Schedule dates for each gate  | Project manager or communications team  | Application owners, communication lead, migration lead  |  \n| Gate 2: T-28 commit meeting  | 4 weeks prior to cutover  | Kick off wave with application owners   | Project manager or communications team  | Application owners, communication lead, migration lead  |  \n| Gate 3: T-21 communication  | 3 weeks prior to cutover  | Reminder that cutover is scheduled to occur in 21 days  | Project manager or communications team  | Application owners, communication lead  |  \n| Gate 4: T-14 checkpoint meeting  | 2 weeks prior to cutover  | Review the schedule and assess progress on readiness tasks   | Project manager and migration lead  | Application owners, communication lead, migration lead  |  \n| Gate 5: T-7 communication  | 1 week prior to cutover  | Reminder that cutover is scheduled to occur in 7 days  | Communications team  | Application owners, operations team  |  \n| Gate 6: T-1 go or no-go meeting  | 24–48 hours prior to cutover  | Confirm readiness for migration cutover  | Project manager or communications team  | Cloud operations team, application owners, infrastructure team   |  ",
+    "citations": [
+      {
+        "file": "data/standardized/news/article_04_task-create-communication-gates.md",
+        "line_start": 20,
+        "line_end": 27
+      }
+    ]
+  },
+  {
+    "id": "case_14",
+    "retrieval_type": "semantic",
+    "question": "An application would suffer if its servers and database were temporarily separated by a slower connection during migration. Which cutover approach fits this constraint, and why?",
+    "expected_answer": "Use an all-at-once approach, cutting over application servers and databases together to avoid the performance impact of increased latency between the data source and application servers.",
+    "expected_context": "If you have an application that can't tolerate increased latency between the data source and the application servers, this is a clear indicator that an all-at-once approach is required. In this scenario, you can cut over all the application resources (servers and databases) together to avoid impacting performance.",
+    "citations": [
+      {
+        "file": "data/standardized/news/article_05_cutover-stage.md",
+        "line_start": 33,
+        "line_end": 33
+      }
+    ]
+  },
+  {
+    "id": "case_15",
+    "retrieval_type": "source_disambiguation",
+    "question": "According to the Cutover stage guidance, what data-handling options should be considered when rolling back after the migrated application has received new transactions?",
+    "expected_answer": "Data may need to be restored from the cloud to on-premises. Options are a fail-forward approach using AWS DMS to replicate to a new on-premises database instead of returning to a stale one; a dual write strategy in which application logic writes to both old and new databases; or native backup and restore, with restore duration tested in non-production environments before cutover.",
+    "expected_context": "### Rollback with the changed data\nIf a rollback is initiated after a successful cutover and your application has received new transactions and data, then you might have to restore the data from the cloud environment to the on-premises environment. We recommend that you consider the following approaches in this scenario:\n  * **Fail-forward approach** – Your on-premises database is likely to become stale post-cutover since the post-migration AWS database becomes the main database. You can use [AWS Database Migration Service](https://aws.amazon.com/dms/) (AWS DMS)to set up a fail-forward database, which will replicate the data to a new on-premises database. In the event of any issues, AWS DMS rolls back your applications to a designated fail-forward database rather than to a stale on-premises database.\n  * **Dual write strategy** – In this case, your application logic must allow writes to both the old and new database.\n  * **Native backup and restore** – To evaluate the time required for the restore, perform backup and restore tests using lower environments (that is, non-production environments) during the pre-cutover stage.",
+    "citations": [
+      {
+        "file": "data/standardized/news/article_05_cutover-stage.md",
+        "line_start": 64,
+        "line_end": 68
+      }
+    ]
+  }
+]
