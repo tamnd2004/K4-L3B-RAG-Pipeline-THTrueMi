@@ -41,7 +41,13 @@ pytest -q
 
 # 3. Chạy sản phẩm
 streamlit run app.py
+
+# 4. Đánh giá A/B (dense-only vs hybrid + RRF), kết quả trong group_project/evaluation/results/
+python group_project/evaluation/run_evaluation.py generate
+python group_project/evaluation/run_evaluation.py score
 ```
+
+Evaluator mặc định là `gemini-3.1-flash-lite` (đổi bằng biến `EVAL_LLM_MODEL`). Lệnh `score` chỉ chấm những ô còn thiếu và cache mọi lần gọi evaluator, nên nếu hết quota giữa chừng thì chạy lại sau khi quota reset.
 
 ## Lộ trình 3 giờ
 

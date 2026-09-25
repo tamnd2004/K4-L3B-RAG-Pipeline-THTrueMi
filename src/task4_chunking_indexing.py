@@ -109,6 +109,11 @@ def _is_rate_limit(error: Exception) -> bool:
     return "429" in text or "resource_exhausted" in text or "rate limit" in text
 
 
+def _is_daily_quota(error: Exception) -> bool:
+    """Hết quota theo ngày (quotaId ...PerDay...): chờ bao lâu cũng không hồi phục."""
+    return "PerDay" in str(error)
+
+
 def _call_with_retry(operation, label: str):
     """Gọi API embedding, backoff khi bị rate limit.
 
@@ -120,7 +125,9 @@ def _call_with_retry(operation, label: str):
             return operation()
         except Exception as error:
             last = attempt == API_MAX_ATTEMPTS - 1
-            if last or not _is_rate_limit(error):
+            # Hết quota ngày thì báo lỗi ngay: retry chỉ làm mỗi query treo ~155s
+            # trước khi Task 9 lùi về BM25.
+            if last or not _is_rate_limit(error) or _is_daily_quota(error):
                 raise
             delay = 5 * 2**attempt
             print(f"  {label}: rate limit, chờ {delay}s rồi thử lại...")
